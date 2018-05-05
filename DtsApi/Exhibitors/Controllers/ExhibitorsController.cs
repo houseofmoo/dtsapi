@@ -24,8 +24,7 @@ namespace DtsApi.Exhibitors.Controllers
         }
 
         // POST: api/Exhibitors
-        // PUT: api/Exhibitors
-        [HttpPost, HttpPut]
+        [HttpPost]
         public void Post([FromBody]Exhibitor exhibitor)
         {
             if (exhibitor == null)

@@ -1,5 +1,4 @@
 ﻿using DtsApi.Exhibitors.Database;
-using DtsApi.Exhibitors.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -31,7 +30,11 @@ namespace DtsApi
             });
 
             services.AddTransient<ExhibitorsContext>();
-            services.AddScoped<IExhibitorsRepository, ExhibitorsTestRepository>();
+            services.AddTransient<BoothRateContext>();
+
+            services.AddScoped<IExhibitorsRepository, TestExhibitorsRepository>();
+            services.AddScoped<IBoothRateRepository, TestBoothRateRepository>();
+
             services.AddMvc();
         }
 

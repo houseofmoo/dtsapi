@@ -9,14 +9,14 @@ namespace DtsApi.Exhibitors.Database
     /// <summary>
     /// Testing repository using a json file as a database
     /// </summary>
-    public class ExhibitorsTestRepository : IExhibitorsRepository
+    public class TestExhibitorsRepository : IExhibitorsRepository
     {
 
-        private readonly ILogger<ExhibitorsTestRepository> _logger;
+        private readonly ILogger<TestExhibitorsRepository> _logger;
         private readonly ExhibitorsContext _context;
         private const string _dbString = "./Database/TestDb/Exhibitors_test.json";
 
-        public ExhibitorsTestRepository(ILogger<ExhibitorsTestRepository> logger,
+        public TestExhibitorsRepository(ILogger<TestExhibitorsRepository> logger,
                                         ExhibitorsContext context)
         {
             this._logger = logger;

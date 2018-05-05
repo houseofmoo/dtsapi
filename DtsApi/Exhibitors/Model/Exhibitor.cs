@@ -17,8 +17,6 @@ namespace DtsApi.Exhibitors.Model
          * to calculate and display booth costs and remaining balance
          */
 
-        // NOTE: outter key on dictionary is always just the YEAR portion of
-        // the DateTime obejct (day and hour set to min)
         public int Id { get; set; }
 
         public string ControlNumber { get; set; }
@@ -40,13 +38,23 @@ namespace DtsApi.Exhibitors.Model
         public bool Hra { get; set; }
         public RequiredForms RequiredForms { get; set; }
 
-        public Dictionary<DateTime, List<Booth>> Booths;
-        public Dictionary<DateTime, List<Payment>> Payments { get; set; }
+        public List<BoothByYear> Booths;
+        public List<PaymentByYear> Payments { get; set; }
         public string BoothNotes;
 
         public bool IsAttending { get; set; }
         public string SpecialRequests { get; set; }
         public string Notes { get; set; }
         public string WorkOrders { get; set; }
+
+        public Exhibitor()
+        {
+            this.Company = new Company();
+            this.Product = new Products();
+            this.YearsAttended = new List<DateTime>();
+            this.RequiredForms = new RequiredForms();
+            this.Booths = new List<BoothByYear>();
+            this.Payments = new List<PaymentByYear>();
+        }
     }
 }
